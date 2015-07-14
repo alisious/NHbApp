@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace NHbApp.Domain
     {
         private  string _familyname;
         private string _firstname;
+        private HashSet<Address> _addresses = new HashSet<Address>();
 
         protected Person()
         {
@@ -43,6 +45,21 @@ namespace NHbApp.Domain
                 _firstname = value;
             }
         }
+
+        public ReadOnlyCollection<Address> Addresses
+        {
+            get
+            {
+                IList<Address> l = new List<Address>(_addresses);
+                return new ReadOnlyCollection<Address>(l);
+            }
+        }
+
+        public bool CreateAddress(string city, string street, string streetNo, string placeNo, string postalCode, bool isCurrent=true)
+        {
+            return _addresses.Add(new Address(){City = city,Streen=street,StreetNo=streetNo,PlaceNo = placeNo,PostalCode = postalCode,IsCurrent = isCurrent});
+        }
+
 
         public virtual Guid Id { get; protected set; }
     }

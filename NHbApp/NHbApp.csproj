@@ -70,6 +70,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Domain\Address.cs" />
     <Compile Include="Domain\Interfaces\IPersonRepository.cs" />
     <Compile Include="Domain\Person.cs" />
     <Compile Include="Infrastructure\Mappings\PersonMap.cs" />
