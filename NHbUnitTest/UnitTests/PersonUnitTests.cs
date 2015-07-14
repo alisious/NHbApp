@@ -3,10 +3,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NHbApp.Domain;
 using NHibernate.Event;
 
-namespace NHbUnitTest
+namespace NHbUnitTest.UnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class PersonUnitTests
     {
         private Person _person;
         
@@ -73,10 +73,31 @@ namespace NHbUnitTest
             var jestAktualny = true;
             
             //when
-            p.CreateAddress(miejscowosc, ulica, nrDomu,nrLokalu,kodPocztowy,jestAktualny);
+            p.AddAddress(miejscowosc, ulica, nrDomu,nrLokalu,kodPocztowy,jestAktualny);
             //then
             Assert.IsNotNull(p);
-            Assert.AreEqual(p.Addresses.Count,1);
+            Assert.AreEqual(p.GetAddresses().Count,1);
+        }
+
+        [TestMethod]
+        public void osobie_można_przypisać_różne_adresy()
+        {
+            //given
+            var p = _person;
+            var miejscowosc1 = "WARSZAWA";
+            var ulica = "DŁUGA";
+            var nrDomu = "10";
+            var nrLokalu = "";
+            var kodPocztowy = "01-163";
+            var miejscowosc2 = "KRAKÓW";
+            var jestAktualny = true;
+
+            //when
+            p.AddAddress(miejscowosc1, ulica, nrDomu, nrLokalu, kodPocztowy, jestAktualny);
+            p.AddAddress(miejscowosc2, ulica, nrDomu, nrLokalu, kodPocztowy, jestAktualny);
+            //then
+            Assert.IsNotNull(p);
+            Assert.AreEqual(p.GetAddresses().Count, 2);
         }
 
         [TestMethod]
@@ -92,12 +113,33 @@ namespace NHbUnitTest
             var jestAktualny = true;
 
             //when
-            p.CreateAddress(miejscowosc, ulica, nrDomu, nrLokalu, kodPocztowy, jestAktualny);
-            var r  = p.CreateAddress(miejscowosc, ulica, nrDomu, nrLokalu, kodPocztowy, jestAktualny);
+            p.AddAddress(miejscowosc, ulica, nrDomu, nrLokalu, kodPocztowy, jestAktualny);
+            var r  = p.AddAddress(miejscowosc, ulica, nrDomu, nrLokalu, kodPocztowy, jestAktualny);
             //then
             Assert.IsNotNull(p);
             Assert.IsFalse(r);
-            Assert.AreEqual(p.Addresses.Count, 1);
+            Assert.AreEqual(p.GetAddresses().Count, 1);
+        }
+
+        [TestMethod]
+        public void można_usunąć_adres_z_listy()
+        {
+            //given
+            var p = _person;
+            var miejscowosc = "WARSZAWA";
+            var ulica = "DŁUGA";
+            var nrDomu = "10";
+            var nrLokalu = "";
+            var kodPocztowy = "01-163";
+            var jestAktualny = true;
+
+            //when
+            p.AddAddress(miejscowosc, ulica, nrDomu, nrLokalu, kodPocztowy, jestAktualny);
+            var r = p.RemoveAddress(miejscowosc, ulica, nrDomu, nrLokalu, kodPocztowy);
+            //then
+            Assert.IsNotNull(p);
+            Assert.IsTrue(r);
+            Assert.AreEqual(p.GetAddresses().Count, 0);
         }
     }
 }

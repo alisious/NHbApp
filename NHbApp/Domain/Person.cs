@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Remotion.Linq;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,15 +10,15 @@ namespace NHbApp.Domain
 {
     public class Person
     {
+        public virtual Guid Id { get; protected set; }
+
         private  string _familyname;
         private string _firstname;
-        private HashSet<Address> _addresses = new HashSet<Address>();
-
+        
         protected Person()
         {
         }
-
-
+        
         public Person(string familyname, string firstname)
         {
             Familyname = familyname;
@@ -46,21 +47,42 @@ namespace NHbApp.Domain
             }
         }
 
-        public ReadOnlyCollection<Address> Addresses
+
+        #region Addresses
+
+        private readonly IList<Address> _addresses = new List<Address>();
+
+        public virtual ReadOnlyCollection<Address> GetAddresses()
         {
-            get
-            {
-                IList<Address> l = new List<Address>(_addresses);
-                return new ReadOnlyCollection<Address>(l);
-            }
+            return new ReadOnlyCollection<Address>(_addresses);
         }
 
-        public bool CreateAddress(string city, string street, string streetNo, string placeNo, string postalCode, bool isCurrent=true)
+        public virtual bool AddAddress(string city, string street, string streetNo, string placeNo, string postalCode, bool isCurrent = true)
         {
-            return _addresses.Add(new Address(){City = city,Streen=street,StreetNo=streetNo,PlaceNo = placeNo,PostalCode = postalCode,IsCurrent = isCurrent});
+            var addr = new Address(city, street, streetNo, placeNo, postalCode, isCurrent);
+            if (_addresses.Contains(addr))
+                return false;
+            _addresses.Add(addr);
+            return true;
+        }
+        
+        public virtual bool RemoveAddress(string city, string street, string streetNo, string placeNo, string postalCode)
+        {
+            var addr = new Address(city, street, streetNo, placeNo, postalCode);
+            return _addresses.Remove(addr);
+
+        } 
+        #endregion
+
+        #region Workplaces
+
+        private readonly IList<Workplace> _workplaces = new List<Workplace>();
+
+        public virtual ReadOnlyCollection<Workplace> GetWorkplaces()
+        {
+            return new ReadOnlyCollection<Workplace>(_workplaces);
         }
 
-
-        public virtual Guid Id { get; protected set; }
+        #endregion
     }
 }

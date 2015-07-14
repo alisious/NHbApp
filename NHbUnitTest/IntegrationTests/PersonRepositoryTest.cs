@@ -15,6 +15,8 @@ namespace NHbUnitTest.IntegrationTests
             var nazwisko = "KORPUSIK";
             var imie = "JACEK";
             var p = new Person(nazwisko,imie);
+            p.AddAddress("WARSZAWA", "ODKRYTA", "10", "", "01-163");
+            p.AddAddress("WARSZAWA", "ODKRYTA", "11", "", "01-163");
             var rep = new PersonRepository();
             //when
             rep.Add(p);
