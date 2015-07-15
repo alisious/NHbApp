@@ -13,7 +13,7 @@ namespace NHbUnitTest.UnitTests
         [TestInitialize]
         public void Initialize()
         {
-            _person = new Person("KORPUSIK","JACEK","73020916558","1973-02-09","JAN");
+            _person = new Person("KORPUSIK","JACEK","","","73020916558","1973-02-09","DZIAŁDOWO","JAN","MIROSŁAWA","IZDEBSKA");
         }
 
 
@@ -25,11 +25,17 @@ namespace NHbUnitTest.UnitTests
             //given
             var nazwisko = "";
             var imie = "JACEK";
+            var drugieImie = "";
+            var nazwiskoPoprzednie = "";
             var pesel = "73020916558";
             var dataUrodzenia = "1973-02-09";
+            var miejsceUrodzenia = "DZIAŁDOWO";
             var imieOjca = "JAN";
+            var imieMatki = "";
+            var nazwiskoRodoweMatki = "";
             //when
-            var p = new Person(nazwisko, imie,pesel,dataUrodzenia,imieOjca);
+            var p = new Person(nazwisko, imie, drugieImie, nazwiskoPoprzednie, pesel, dataUrodzenia, miejsceUrodzenia, imieOjca, imieMatki, nazwiskoRodoweMatki);
+            
             //then
             Assert.IsNull(p);
             
@@ -42,11 +48,16 @@ namespace NHbUnitTest.UnitTests
             //given
             var nazwisko = "KORPUSIK";
             var imie = "";
+            var drugieImie = "";
+            var nazwiskoPoprzednie = "";
             var pesel = "73020916558";
             var dataUrodzenia = "1973-02-09";
+            var miejsceUrodzenia = "DZIAŁDOWO";
             var imieOjca = "JAN";
+            var imieMatki = "";
+            var nazwiskoRodoweMatki = "";
             //when
-            var p = new Person(nazwisko, imie, pesel, dataUrodzenia, imieOjca);
+            var p = new Person(nazwisko, imie,drugieImie,nazwiskoPoprzednie,pesel,dataUrodzenia,miejsceUrodzenia,imieOjca,imieMatki,nazwiskoRodoweMatki);
             //then
             Assert.IsNull(p);
 
@@ -58,12 +69,17 @@ namespace NHbUnitTest.UnitTests
             //given
             var nazwisko = "KORPUSIK";
             var imie = "JACEK";
+            var drugieImie = "";
+            var nazwiskoPoprzednie = "";
             var pesel = "73020916558";
             var dataUrodzenia = "";
+            var miejsceUrodzenia = "DZIAŁDOWO";
             var imieOjca = "";
+            var imieMatki = "";
+            var nazwiskoRodoweMatki = "";
 
             //when
-            var p = new Person(nazwisko, imie,pesel,dataUrodzenia,imieOjca);
+            var p = new Person(nazwisko, imie, drugieImie, nazwiskoPoprzednie, pesel, dataUrodzenia, miejsceUrodzenia, imieOjca, imieMatki, nazwiskoRodoweMatki);
             //then
             Assert.IsNotNull(p);
             Assert.AreEqual(nazwisko, p.Familyname);
@@ -78,12 +94,17 @@ namespace NHbUnitTest.UnitTests
             //given
             var nazwisko = "KORPUSIK";
             var imie = "JACEK";
+            var drugieImie = "";
+            var nazwiskoPoprzednie = "";
             var pesel = "";
             var dataUrodzenia = "";
+            var miejsceUrodzenia = "DZIAŁDOWO";
             var imieOjca = "";
+            var imieMatki = "";
+            var nazwiskoRodoweMatki = "";
 
             //when
-            var p = new Person(nazwisko, imie, pesel, dataUrodzenia, imieOjca);
+            var p = new Person(nazwisko, imie, drugieImie, nazwiskoPoprzednie, pesel, dataUrodzenia, miejsceUrodzenia, imieOjca, imieMatki, nazwiskoRodoweMatki);
             //then
             Assert.IsNull(p);
             
@@ -95,12 +116,17 @@ namespace NHbUnitTest.UnitTests
             //given
             var nazwisko = "KORPUSIK";
             var imie = "JACEK";
+            var drugieImie = "";
+            var nazwiskoPoprzednie = "";
             var pesel = "";
             var dataUrodzenia = "1973-02-09";
+            var miejsceUrodzenia = "DZIAŁDOWO";
             var imieOjca = "JAN";
+            var imieMatki = "";
+            var nazwiskoRodoweMatki = "";
 
             //when
-            var p = new Person(nazwisko, imie, pesel, dataUrodzenia, imieOjca);
+            var p = new Person(nazwisko, imie, drugieImie, nazwiskoPoprzednie, pesel, dataUrodzenia, miejsceUrodzenia, imieOjca, imieMatki, nazwiskoRodoweMatki);
             //then
             Assert.IsNotNull(p);
 

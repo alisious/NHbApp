@@ -17,6 +17,14 @@ namespace NHbApp.Infrastructure.Mappings
             Id(x => x.Id).GeneratedBy.GuidComb();
             Map(x => x.Familyname).Length(50).Not.Nullable();
             Map(x => x.Firstname).Length(50).Not.Nullable();
+            Map(x => x.Middlename).Length(50).Default("");
+            Map(x => x.Pesel).Length(11).Default("");
+            Map(x => x.PreviousName).Length(50).Default("");
+            Map(x => x.DateOfBirth).Length(10).Default("");
+            Map(x => x.PlaceOfBirth).Length(50).Default("");
+            Map(x => x.NameOfFather).Length(50).Default("");
+            Map(x => x.NameOfMother).Length(50).Default(""); 
+            Map(x => x.MotherMaidenName).Length(50).Default("");
             HasMany<Address>(Reveal.Member<Person>("_addresses"))
                 .Component(c =>
                 {

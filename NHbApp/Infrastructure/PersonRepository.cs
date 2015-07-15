@@ -12,7 +12,14 @@ namespace NHbApp.Infrastructure
     {
         public Person GetById(Guid id)
         {
-            throw new NotImplementedException();
+            Person p = null;
+            using (var session = NHibernateHelpers.OpenSession())
+           
+            {
+                p = session.Get<Person>(id);
+                
+            }
+            return p;
         }
 
         public void Add(Person person)

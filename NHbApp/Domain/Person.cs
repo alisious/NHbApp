@@ -20,7 +20,16 @@ namespace NHbApp.Domain
         {
         }
         
-        public Person(string familyname, string firstname,string pesel,string dateOfBirth,string nameOfFather)
+        public Person(string familyname, 
+            string firstname,
+            string middleName,
+            string previousName, 
+            string pesel,
+            string dateOfBirth,
+            string placeOfBirth,
+            string nameOfFather,
+            string nameOfMother,
+            string motherMaidenName)
         {
             if (String.IsNullOrEmpty(familyname)) throw new ArgumentException("Osoba musi mieć nazwisko!");
             if (String.IsNullOrEmpty(firstname)) throw new ArgumentException("Osoba musi mieć imię!");
@@ -29,17 +38,27 @@ namespace NHbApp.Domain
             
             Familyname = familyname;
             Firstname = firstname;
+            Middlename = middleName;
+            PreviousName = previousName;
             Pesel = pesel;
             DateOfBirth = dateOfBirth;
+            PlaceOfBirth = placeOfBirth;
             NameOfFather = nameOfFather;
-          
+            NameOfMother = nameOfMother;
+            MotherMaidenName = motherMaidenName;
+
         }
 
         public virtual string Familyname { get; protected set; }
         public virtual string Firstname { get; protected set; }
+        public virtual string Middlename { get; protected set; }
+        public virtual string PreviousName { get; protected set; }
         public virtual string Pesel { get; protected set; }
         public virtual string DateOfBirth { get; protected set; }
+        public virtual string PlaceOfBirth { get; protected set; }
         public virtual string NameOfFather { get; protected set; }
+        public virtual string NameOfMother { get; protected set; }
+        public virtual string MotherMaidenName { get; protected set; }
 
         #region Addresses
 
@@ -95,5 +114,15 @@ namespace NHbApp.Domain
         }
 
         #endregion
+
+        public virtual void Correct()
+        {
+
+        }
+
+        public virtual void Update()
+        {
+
+        }
     }
 }

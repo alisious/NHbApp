@@ -73,6 +73,8 @@
     <Compile Include="Domain\Address.cs" />
     <Compile Include="Domain\Interfaces\IPersonRepository.cs" />
     <Compile Include="Domain\Person.cs" />
+    <Compile Include="Domain\PersonRegistration.cs" />
+    <Compile Include="Domain\Registration.cs" />
     <Compile Include="Domain\ValueObject.cs" />
     <Compile Include="Domain\Workplace.cs" />
     <Compile Include="Infrastructure\Mappings\PersonMap.cs" />
