@@ -15,6 +15,10 @@ namespace NHbApp.Infrastructure
 {
     public static class NHibernateHelpers
     {
+        //private const string ConnectionString = @"Data Source=LOCALHOST\SQL2012R2;Initial Catalog=NHbContext;Integrated Security=True";
+        private const string ConnectionString = @"Data Source=LOCALHOST\SQLEXPRESS;Initial Catalog=NHbContext;Integrated Security=True";
+
+
         private static ISessionFactory _sessionFactory;
 
         private static ISessionFactory SessionFactory
@@ -31,8 +35,7 @@ namespace NHbApp.Infrastructure
         {
             return Fluently.Configure()
                 .Database(
-                    MsSqlConfiguration.MsSql2012.ConnectionString(
-                        @"Data Source=LOCALHOST\SQL2012R2;Initial Catalog=NHbContext;Integrated Security=True"))
+                    MsSqlConfiguration.MsSql2012.ConnectionString(ConnectionString))
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Person>());
         }
 

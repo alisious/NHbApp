@@ -64,6 +64,8 @@
     <Compile Include="UnitTests\PersonUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTests\AddressUnitTests.cs" />
+    <Compile Include="UnitTests\WorkplaceUnitTests.cs" />
+    <Compile Include="UnitTests\ValueObjectUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NHbApp\NHbApp.csproj">
