@@ -8,6 +8,6 @@ namespace NHbApp.Domain
 {
     public class PersonRegistration :Registration
     {
-
+        public string RegistrationData { get; protected set; }
     }
 }

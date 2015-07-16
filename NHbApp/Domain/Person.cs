@@ -13,9 +13,6 @@ namespace NHbApp.Domain
     {
         public virtual Guid Id { get; protected set; }
 
-        private  string _familyname;
-        private string _firstname;
-        
         protected Person()
         {
         }
@@ -46,6 +43,7 @@ namespace NHbApp.Domain
             NameOfFather = nameOfFather;
             NameOfMother = nameOfMother;
             MotherMaidenName = motherMaidenName;
+            State = ObjectState.Active;
 
         }
 
@@ -59,6 +57,7 @@ namespace NHbApp.Domain
         public virtual string NameOfFather { get; protected set; }
         public virtual string NameOfMother { get; protected set; }
         public virtual string MotherMaidenName { get; protected set; }
+        public virtual ObjectState State { get; protected set; } 
 
         #region Addresses
 
@@ -123,6 +122,16 @@ namespace NHbApp.Domain
         public virtual void Update()
         {
 
+        }
+
+        public virtual void Archive()
+        {
+            State = ObjectState.Archived;
+        }
+
+        public virtual void Delete()
+        {
+            State = ObjectState.Deleted;
         }
     }
 }
