@@ -44,6 +44,7 @@
       <HintPath>..\packages\NHibernate.4.0.3.4000\lib\net40\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,12 +72,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Domain\Address.cs" />
+    <Compile Include="Domain\Extensions\ObjectExtensions.cs" />
     <Compile Include="Domain\Interfaces\IPersonRepository.cs" />
     <Compile Include="Domain\ObjectState.cs" />
     <Compile Include="Domain\Person.cs" />
     <Compile Include="Domain\PersonRegistration.cs" />
     <Compile Include="Domain\Registration.cs" />
     <Compile Include="Domain\RegistrationState.cs" />
+    <Compile Include="Domain\Reservation.cs" />
     <Compile Include="Domain\ValueObject.cs" />
     <Compile Include="Domain\Workplace.cs" />
     <Compile Include="Infrastructure\Mappings\PersonMap.cs" />

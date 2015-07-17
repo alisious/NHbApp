@@ -15,8 +15,8 @@ namespace NHbApp.Infrastructure
 {
     public static class NHibernateHelpers
     {
-        private const string ConnectionString = @"Data Source=LOCALHOST\SQL2012R2;Initial Catalog=NHbContext;Integrated Security=True";
-        //private const string ConnectionString = @"Data Source=LOCALHOST\SQLEXPRESS;Initial Catalog=NHbContext;Integrated Security=True";
+        //private const string ConnectionString = @"Data Source=LOCALHOST\SQL2012R2;Initial Catalog=NHbContext;Integrated Security=True";
+        private const string ConnectionString = @"Data Source=LOCALHOST\SQLEXPRESS;Initial Catalog=NHbContext;Integrated Security=True";
 
 
         private static ISessionFactory _sessionFactory;

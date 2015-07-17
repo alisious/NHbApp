@@ -25,6 +25,7 @@ namespace NHbApp.Infrastructure.Mappings
             Map(x => x.NameOfFather).Length(50).Default("");
             Map(x => x.NameOfMother).Length(50).Default(""); 
             Map(x => x.MotherMaidenName).Length(50).Default("");
+            Map(x => x.State).CustomType<ObjectState>().Not.Nullable();
             HasMany<Address>(Reveal.Member<Person>("_addresses"))
                 .Component(c =>
                 {

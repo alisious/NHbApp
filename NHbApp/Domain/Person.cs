@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using NHibernate.Classic;
 using Remotion.Linq;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ using Remotion.Linq.Parsing;
 
 namespace NHbApp.Domain
 {
-    public class Person
+    public class Person :IValidatable
     {
         public virtual Guid Id { get; protected set; }
 
@@ -132,6 +133,11 @@ namespace NHbApp.Domain
         public virtual void Delete()
         {
             State = ObjectState.Deleted;
+        }
+
+        void IValidatable.Validate()
+        {
+            throw new NotImplementedException();
         }
     }
 }
