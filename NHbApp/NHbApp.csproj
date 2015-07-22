@@ -76,17 +76,18 @@
     <Compile Include="Domain\Interfaces\IPersonRepository.cs" />
     <Compile Include="Domain\ObjectState.cs" />
     <Compile Include="Domain\Person.cs" />
-    <Compile Include="Domain\PersonRegistration.cs" />
-    <Compile Include="Domain\Registration.cs" />
-    <Compile Include="Domain\RegistrationState.cs" />
+    <Compile Include="Domain\Request.cs" />
+    <Compile Include="Domain\RequestState.cs" />
     <Compile Include="Domain\Reservation.cs" />
     <Compile Include="Domain\ValueObject.cs" />
     <Compile Include="Domain\Workplace.cs" />
+    <Compile Include="Infrastructure\IRepository.cs" />
     <Compile Include="Infrastructure\Mappings\PersonMap.cs" />
     <Compile Include="Infrastructure\Mappings\PersonRegistrationMap.cs" />
     <Compile Include="Infrastructure\Mappings\RegistrationMap.cs" />
     <Compile Include="Infrastructure\NHibernateHelpers.cs" />
     <Compile Include="Infrastructure\PersonRepository.cs" />
+    <Compile Include="Infrastructure\Repository.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -25,7 +25,7 @@ namespace NHbUnitTest.IntegrationTests
             p.AddAddress("WARSZAWA", "ODKRYTA", "11", "", "01-163");
             p.AddWorkplace("KG ŻW","SZEF WYDZIAŁU","WARSZAWA", "ODKRYTA", "10", "", "01-163");
             p.AddWorkplace("MOŻW", "SPECJALISTA", "WARSZAWA", "ODKRYTA", "10", "", "01-163");
-            var rep = new PersonRepository();
+            var rep = new PersonRepository(null);
             //when
             rep.Add(p);
             Person fromDb = null;
@@ -65,7 +65,7 @@ namespace NHbUnitTest.IntegrationTests
 
             fromDb1.RemoveAddress("WARSZAWA", "ODKRYTA", "10", "", "01-163");
             
-            var rep = new PersonRepository();
+            var rep = new PersonRepository(null);
             //when
            // rep.Update(fromDb1);
             //then
@@ -93,7 +93,7 @@ namespace NHbUnitTest.IntegrationTests
                 tr.Commit();
             }
             
-            var rep = new PersonRepository();
+            var rep = new PersonRepository(null);
             //when
             var fromDb = rep.GetById(p.Id);
             //then

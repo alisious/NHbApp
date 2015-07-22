@@ -9,13 +9,13 @@ using NHbApp.Domain;
 
 namespace NHbApp.Infrastructure.Mappings
 {
-    public class PersonRegistrationMap :SubclassMap<PersonRegistration>
+    public class PersonRegistrationMap :SubclassMap<Request>
     {
         public PersonRegistrationMap()
         {
             Abstract();
             Table("PersonRegistration");
-            Map(x => x.RegistrationData).CustomSqlType("text");
+            Map(x => x.Content).CustomSqlType("text");
         }
     }
 }

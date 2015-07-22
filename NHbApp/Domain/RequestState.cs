@@ -5,10 +5,10 @@ using System.Text;
 
 namespace NHbApp.Domain
 {
-    public enum RegistrationState
+    public enum RequestState
     {
         Draft,
-        Approved,
+        Confirmed,
         Rejected
     }
 }

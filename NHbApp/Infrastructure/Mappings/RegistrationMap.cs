@@ -8,7 +8,7 @@ using NHbApp.Domain;
 
 namespace NHbApp.Infrastructure.Mappings
 {
-    public class RegistrationMap :ClassMap<Registration>
+    public class RegistrationMap :ClassMap<Request>
     {
         public RegistrationMap()
         {
@@ -16,7 +16,7 @@ namespace NHbApp.Infrastructure.Mappings
             Id(x => x.Id).GeneratedBy.GuidComb();
             Map(x => x.Author).Length(50).Not.Nullable();
             Map(x => x.CreationTime).Not.Nullable();
-            Map(x => x.RegistrationType).CustomType<RegistrationType>();
+            Map(x => x.RequestType).CustomType<RequestType>();
 
         }
     }

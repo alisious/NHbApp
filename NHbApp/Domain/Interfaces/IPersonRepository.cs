@@ -10,7 +10,7 @@ namespace NHbApp.Domain.Interfaces
     public interface IPersonRepository
     {
         Person GetById(Guid id);
-        void Add(Person person);
-        void Remove(Person person);
+        bool Add(Person person);
+        bool Delete(Person person);
     }
 }
